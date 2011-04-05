@@ -116,7 +116,10 @@ my %other_cmds = (
                    "Partitions" => "( sfdisk -d && echo '---' && fdisk -l && echo '---' && fdisk -lu ) > '$dest/_Partitionsliste.txt' 2>&1",
                    "Lshw"       => "lshw > '$dest/_Lshw.txt' 2>&1",
                    "LvmDump"    => "lvmdump -a -d '$dest/lvmdump' 2>&1",
+                   "DmiDecode"  => "dmidecode > '$dest/_DmiDecode.txt' 2>&1",
                  );
+
+system( "rm -rf -- '$dest/lvmdump'" );
 
 foreach ( keys %other_cmds ) {
 

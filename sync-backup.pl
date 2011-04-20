@@ -19,21 +19,37 @@ use Net::Twitter;
 
 
 
-my $destsys;
+my $destsys = "/media";
 
-$destsys = "/media/HDS-704A10e";
+opendir( my $dh, $destsys ) || die "Cannot open dir";
 
-if ( ! -e "$destsys/." ) {
-    $destsys = "/media/HDS_204954_P2enc";
+while ( my $dirname = readdir $dh ) {
+
+    # Skip . and ..
+    next if $dirname =~ /\.\.?/;
+
+    # Only directories
+    next unless -d "$destsys/$dirname";
+
+    # Subdirectory Spiegel_<hostname>/spiegel1/ must be there
+    if ( -e "$destsys/$dirname/Spiegel_" . hostname . "/spiegel1/." ) {
+        $destsys .= "/$dirname";
+        print "Found directory $destsys.\n";
+        last;
+    }
+
 }
 
-if ( ! -e "$destsys/." ) {
+closedir $dh;
+
+######################
+
+# Failback to /mnt
+if ( ! -e "$destsys/Spiegel_" . hostname ) {
     $destsys = "/mnt";
 }
 
 my $local_path = "/var/local/my-backuptools";
-
-######################
 
 # Check effective UID
 if ( $> != 0 ) {

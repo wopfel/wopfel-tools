@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 # Copyright (C) wopfel - https://github.com/wopfel
+# Created 2010-09-02
 # Released under GPL version 2 or later
 
 # Purpose:

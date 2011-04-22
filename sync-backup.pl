@@ -112,6 +112,7 @@ foreach ( sort keys %rsyncs ) {
     print "Rsync $_...";
 
     my $cmd = "rsync --stats --delete -avv ";
+    $cmd .= "--link-dest='../spiegel2' ";
     $cmd .= "$rsyncs{$_} "  if $rsyncs{$_};
     $cmd .= "$_ '$dest/' ";
     $cmd .= ">> $remote_logfile 2>&1";

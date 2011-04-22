@@ -1,1 +1,20 @@
 Just some tools...
+
+
+sync-backup.pl
+==============
+
+How to use Twitter message:
+
+1. Register new app https://twitter.com/apps
+2. Put consumer key and consumer secret into OAuth example
+   https://github.com/semifor/Net-Twitter/blob/master/examples/oauth_desktop.pl
+3. Run OAuth example, load URL into browser, enter PIN into OAuth example
+   Both access token and access token secret are stored in oauth.datafile - you can use the following two lines after "if ( @$access_tokens ) {" to show them:
+   print "AT: $access_tokens->[0]\n";
+   print "ATS: $access_tokens->[1]\n";
+   and run outh_desktop.pl again
+
+
+See also:
+http://www.heikniemi.net/hardcoded/2010/09/twitter-and-oauth-in-desktop-applications/

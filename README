@@ -15,6 +15,9 @@ How to use Twitter message:
    print "ATS: $access_tokens->[1]\n";
    and run outh_desktop.pl again
 
+As an alternative, you can use (unverified):
+https://github.com/Getty/Net-Twitter/blob/master/script/net_twitter_get_access_token
+
 
 See also:
 http://www.heikniemi.net/hardcoded/2010/09/twitter-and-oauth-in-desktop-applications/

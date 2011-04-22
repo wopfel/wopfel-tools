@@ -9,6 +9,10 @@
 # - Sync local files to remote storage
 # - Twitter end-of-backup message
 
+# Preparation:
+# sudo mkdir -p /media/<your_backup_filesystem>/Spiegel_<your_hostname>/{logs,spiegel{1,2,3}}
+# (replace <your_backup_filesystem> and <your_hostname>)
+
 use strict;
 use warnings;
 use File::Copy;
